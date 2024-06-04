@@ -1,34 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
+const pageTitle = "Home Page";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Astro blog</h1>
-    <p> this is a test paragraph</p>
-    <a href="/blog">Bblog</a>
-    <a href="/about">About</a>
-	</main>
-</Layout>
-
-
-<style>
-  body {
-    background-color: white;
-  }
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-
-</style>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+  <p>Not bad at all this astro</p>
+  <Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+</BaseLayout>
